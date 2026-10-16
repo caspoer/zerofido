@@ -114,6 +114,13 @@ ZeroFIDO includes an on-device Settings screen.
   protects key material and rollback-sensitive state; it does not encrypt the whole app directory.
 - Attestation is local software attestation, not hardware-backed vendor provenance, and ZeroFIDO is
   not FIDO Alliance certified.
+- Requests that set the CTAP `up=false` option (silent GetAssertion, used for credential checks) are
+  answered without an on-device prompt and without a user-presence flag. Any USB host that can talk
+  to the Flipper can obtain those signatures for credentials that do not require user verification.
+  This is intentional and covered by the conformance tests, but it is weaker than a touch prompt.
+- The per-credential `.counter` floor files and the U2F counter file are encrypted but not
+  authenticated. Someone with write access to the Flipper's storage can edit or roll back those
+  counters. Relying parties may then fail to detect a cloned key.
 - Keep at least one backup sign-in method for accounts you care about.
 
 ## Attestation

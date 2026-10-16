@@ -10,7 +10,7 @@ Use it with browsers and services that support WebAuthn, passkeys, or legacy U2F
 - U2F compatibility for older security-key flows
 - ClientPIN support for sites that require a PIN
 - Discoverable credentials stored on the Flipper
-- On-device approval prompts before credential creation or sign-in
+- On-device approval prompts before credential creation or sign-in (silent credential checks are answered without a prompt; see README)
 - Local software attestation support
 
 ## Usage
